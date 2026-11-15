@@ -51,7 +51,7 @@ const SEED_PRODUCTS = [
      'short' => 'Mid-range champion with a 120Hz screen and clean software.',
      'description' => 'Pixel Lite 5G proves you do not need a flagship budget for a flagship feel. A 6.5" 120Hz pOLED panel, 64MP OIS camera and two days of battery life in a 178g body.',
      'specs' => ['Display' => '6.5" pOLED, 120Hz', 'Chip' => 'Zenith Core 7 Gen 3', 'Camera' => '64MP OIS + 8MP UW', 'Battery' => '5000mAh, 33W wired', 'Storage' => '128GB / 256GB', 'Water resistance' => 'IP54'],
-     'images' => ['photo-1580910051074-3eb694886505', 'photo-1511707171634-5f897ff02aa9', 'photo-1592750475338-74b7b21085ab]],
+     'images' => ['photo-1580910051074-3eb694886505', 'photo-1511707171634-5f897ff02aa9', 'photo-1592750475338-74b7b21085ab']],
 
     ['slug' => 'aerobook-pro-16', 'name' => 'AeroBook Pro 16', 'brand' => 'Aero', 'category' => 'laptops',
      'price' => 2399, 'old_price' => 2599, 'rating' => 4.9, 'reviews' => 1120, 'stock' => 12, 'badge' => 'Flagship',
@@ -59,7 +59,7 @@ const SEED_PRODUCTS = [
      'short' => '16" mini-LED workstation with 22-hour battery life.',
      'description' => 'AeroBook Pro 16 is a mobile workstation without compromise. The M4-class 12-core CPU and 18-core GPU render 8K timelines, the 16" mini-LED display hits 1600 nits peak HDR, and a 100Wh battery keeps it running for up to 22 hours.',
      'specs' => ['Display' => '16.2" mini-LED, 120Hz, 1600 nits HDR', 'Chip' => 'Aero M4 Pro, 12-core CPU / 18-core GPU', 'Memory' => '24GB unified (up to 128GB)', 'Storage' => '512GB SSD (up to 8TB)', 'Battery' => '100Wh, up to 22 hours', 'Weight' => '2.14 kg'],
-     'images' => ['photo-1517336714731-489689fd1ca8', 'photo-1496181133206-80ce9b88a853', 'photo-1525547719571-a2d4ac8945e2]],
+     'images' => ['photo-1517336714731-489689fd1ca8', 'photo-1496181133206-80ce9b88a853', 'photo-1525547719571-a2d4ac8945e2']],
 
     ['slug' => 'aerobook-air-13', 'name' => 'AeroBook Air 13', 'brand' => 'Aero', 'category' => 'laptops',
      'price' => 1099, 'old_price' => null, 'rating' => 4.8, 'reviews' => 2043, 'stock' => 40, 'badge' => 'Best seller',
@@ -123,7 +123,7 @@ const SEED_PRODUCTS = [
      'short' => 'Titanium adventure watch with dual-band GPS and 36h battery.',
      'description' => 'Chrono Watch Ultra is built for extremes: a 49mm titanium case, sapphire crystal, 100m water resistance and dual-band precision GPS. The 3000-nit display is the brightest we have ever shipped, and the action button is fully customizable.',
      'specs' => ['Case' => '49mm aerospace titanium', 'Display' => '1.92" LTPO AMOLED, 3000 nits', 'Battery' => '36h normal / 72h low power', 'Sensors' => 'ECG, SpO2, temperature, depth', 'GPS' => 'Dual-band L1 + L5', 'Water resistance' => '100m, EN13319 dive'],
-     'images' => ['photo-1523275335684-37898b6baf30', 'photo-1546868871-7041f2a55e12', 'photo-1579586337278-3befd40fd17a]],
+     'images' => ['photo-1523275335684-37898b6baf30, 'photo-1546868871-7041f2a55e12, 'photo-1579586337278-3befd40fd17a]],
 
     ['slug' => 'chrono-watch-se', 'name' => 'Chrono Watch SE', 'brand' => 'Chrono', 'category' => 'wearables',
      'price' => 279, 'old_price' => null, 'rating' => 4.6, 'reviews' => 1755, 'stock' => 92, 'badge' => 'Best seller',
@@ -131,7 +131,7 @@ const SEED_PRODUCTS = [
      'short' => 'The essential smartwatch — fitness, sleep and notifications.',
      'description' => 'Chrono Watch SE brings core health tracking, crash detection and a crisp always-on display to a lightweight 40mm aluminum case. Two full days of battery with typical use.',
      'specs' => ['Case' => '40mm aluminum', 'Display' => '1.5" AMOLED, 1000 nits', 'Battery' => 'Up to 2 days', 'Sensors' => 'Heart rate, SpO2, accelerometer', 'GPS' => 'L1 single-band', 'Water resistance' => '50m'],
-     'images' => ['photo-1546868871-7041f2a55e12', 'photo-1523275335684-37898b6baf30, 'photo-1579586337278-3befd40fd17a]],
+     'images' => ['photo-1546868871-7041f2a55e12, 'photo-1523275335684-37898b6baf30, 'photo-1579586337278-3befd40fd17a]],
 
     ['slug' => 'pulse-band-8', 'name' => 'Pulse Band 8', 'brand' => 'Pulse', 'category' => 'wearables',
      'price' => 79, 'old_price' => 99, 'rating' => 4.4, 'reviews' => 2890, 'stock' => 150, 'badge' => 'Deal',
@@ -139,7 +139,7 @@ const SEED_PRODUCTS = [
      'short' => 'Featherweight fitness band with 16-day battery life.',
      'description' => 'Pulse Band 8 tracks 150+ workout modes, sleep stages and stress — all from a 27g band that lasts up to 16 days per charge. A 1.6" AMOLED makes every glance effortless.',
      'specs' => ['Display' => '1.6" AMOLED', 'Battery' => '16 days typical', 'Sensors' => 'Heart rate, SpO2, sleep', 'Modes' => '150+ workout modes', 'Water resistance' => '50m', 'Weight' => '27 g'],
-     'images' => ['photo-1557438159-51eec7a6c9e8', 'photo-1546868871-7041f2a55e12', 'photo-1523275335684-37898b6baf30]],
+     'images' => ['photo-1557438159-51eec7a6c9e8, 'photo-1546868871-7041f2a55e12, 'photo-1523275335684-37898b6baf30]],
 
     ['slug' => 'vision-air-ring', 'name' => 'Vision Air Ring', 'brand' => 'Zenith', 'category' => 'wearables',
      'price' => 349, 'old_price' => null, 'rating' => 4.5, 'reviews' => 412, 'stock' => 39, 'badge' => 'New',
@@ -147,7 +147,7 @@ const SEED_PRODUCTS = [
      'short' => 'Smart ring for invisible, 24/7 health tracking.',
      'description' => 'Vision Air Ring packs heart rate, HRV, temperature and sleep tracking into a 4g titanium ring. Seven days of battery, no screen, no distractions — just insights in the app.',
      'specs' => ['Material' => 'Titanium, PVD coated', 'Battery' => '7 days', 'Sensors' => 'HR, HRV, SpO2, skin temp', 'Sizing' => 'US 6–13, 8 sizes', 'Water resistance' => '100m', 'Weight' => '4 g'],
-     'images' => ['photo-1575378926881-b41a91f3c987', 'photo-1546868871-7041f2a55e12, 'photo-1557438159-51eec7a6c9e8]],
+     'images' => ['photo-1575378926881-b41a91f3c987, 'photo-1546868871-7041f2a55e12, 'photo-1557438159-51eec7a6c9e8]],
 
     ['slug' => 'apex-a7-mirrorless', 'name' => 'Apex A7 Mirrorless', 'brand' => 'Apex', 'category' => 'cameras',
      'price' => 2199, 'old_price' => 2399, 'rating' => 4.9, 'reviews' => 654, 'stock' => 9, 'badge' => 'Flagship',
@@ -155,7 +155,7 @@ const SEED_PRODUCTS = [
      'short' => 'Full-frame 61MP stills, 8K video, 759-point AF.',
      'description' => 'The Apex A7 is a hybrid powerhouse: a 61MP full-frame sensor, 8K/30 internal video and an AI processor that recognizes subjects with 759 phase-detect points. In-body stabilization gives 8 stops of shake correction.',
      'specs' => ['Sensor' => '61MP full-frame BSI CMOS', 'Video' => '8K30 / 4K120 10-bit', 'AF' => '759-point phase detect, AI subject tracking', 'Stabilization' => 'In-body, 8 stops', 'Burst' => '10 fps mechanical / 30 fps electronic', 'Weight' => '658 g'],
-     'images' => ['photo-1516035069371-29a1b244cc32', 'photo-1502920917128-1aa500764cbd, 'photo-1519638831568-d9897f54ed69]],
+     'images' => ['photo-1516035069371-29a1b244cc32, 'photo-1502920917128-1aa500764cbd, 'photo-1519638831568-d9897f54ed69]],
 
     ['slug' => 'apex-r100', 'name' => 'Apex R100 Compact', 'brand' => 'Apex', 'category' => 'cameras',
      'price' => 899, 'old_price' => 999, 'rating' => 4.7, 'reviews' => 823, 'stock' => 24, 'badge' => null,
@@ -163,7 +163,7 @@ const SEED_PRODUCTS = [
      'short' => 'Pocketable 1-inch sensor compact with a bright f/1.8 lens.',
      'description' => 'Apex R100 brings serious image quality to a jacket pocket. The 20MP 1-inch stacked sensor and 24-120mm f/1.8-2.8 lens shoot gorgeous stills and 4K60 video, with a pop-up EVF for sunny days.',
      'specs' => ['Sensor' => '20MP 1" stacked CMOS', 'Lens' => '24-120mm f/1.8-2.8', 'Video' => '4K60 10-bit', 'EVF' => 'Pop-up 2.36M dot', 'Battery' => '260 shots', 'Weight' => '302 g'],
-     'images' => ['photo-1502920917128-1aa500764cbd]', 'photo-1516035069371-29a1b244cc32']],
+     'images' => ['photo-1502920917128-1aa500764cbd, 'photo-1516035069371-29a1b244cc32, 'photo-1519638831568-d9897f54ed69]],
 
     ['slug' => 'sky-eye-4k-drone', 'name' => 'SkyEye 4K Drone', 'brand' => 'SkyEye', 'category' => 'cameras',
      'price' => 749, 'old_price' => 849, 'rating' => 4.6, 'reviews' => 377, 'stock' => 16, 'badge' => 'Deal',
@@ -171,7 +171,7 @@ const SEED_PRODUCTS = [
      'short' => 'Foldable 4K/60 drone with 3-axis gimbal and 34-min flights.',
      'description' => 'SkyEye 4K folds to the size of a phone yet flies 34 minutes per battery. The 3-axis gimbal keeps 4K/60 HDR footage buttery smooth, and obstacle sensing in three directions makes it beginner-safe.',
      'specs' => ['Camera' => '4K60 HDR, 12MP stills', 'Gimbal' => '3-axis mechanical', 'Flight' => '34 min per battery', 'Range' => '10 km transmission', 'Sensors' => '3-direction obstacle sensing', 'Weight' => '249 g'],
-     'images' => ['photo-1473968512647-3e447244af8f, 'photo-1502920917128-1aa500764cbd', 'photo-1516035069371-29a1b244cc32]],
+     'images' => ['photo-1473968512647-3e447244af8f, 'photo-1502920917128-1aa500764cbd, 'photo-1516035069371-29a1b244cc32]],
 
     ['slug' => 'lumen-action-cam', 'name' => 'Lumen Action Cam', 'brand' => 'Lumen', 'category' => 'cameras',
      'price' => 349, 'old_price' => 399, 'rating' => 4.5, 'reviews' => 1108, 'stock' => 52, 'badge' => null,
@@ -179,7 +179,7 @@ const SEED_PRODUCTS = [
      'short' => '5.3K60 action camera with horizon lock and waterproof body.',
      'description' => 'Lumen Action Cam shoots 5.3K60 with HyperSteady stabilization and 360° horizon lock. Waterproof to 10m without a case, with dual screens for effortless framing.',
      'specs' => ['Video' => '5.3K60 / 4K120', 'Stabilization' => 'HyperSteady 4.0 + horizon lock', 'Water resistance' => '10m, no case', 'Screens' => 'Front + rear touch', 'Battery' => '1720mAh, enduro mode', 'Weight' => '154 g'],
-     'images' => ['photo-1519638831568-d9897f54ed69]', 'photo-1502920917128-1aa500764cbd', 'photo-1473968512647-3e447244af8f]],
+     'images' => ['photo-1519638831568-d9897f54ed69, 'photo-1502920917128-1aa500764cbd, 'photo-1473968512647-3e447244af8f]],
 
     ['slug' => 'mech-type-75', 'name' => 'MechType 75 Keyboard', 'brand' => 'MechType', 'category' => 'accessories',
      'price' => 159, 'old_price' => 189, 'rating' => 4.8, 'reviews' => 1345, 'stock' => 71, 'badge' => 'Best seller',
@@ -187,7 +187,7 @@ const SEED_PRODUCTS = [
      'short' => 'Hot-swappable 75% mechanical keyboard with gasket mount.',
      'description' => 'MechType 75 is a gasket-mounted 75% board with hot-swap sockets, triple-mode connectivity (2.4G / BT5.1 / USB-C) and south-facing RGB. Pre-lubed linear switches sound and feel out of this world.',
      'specs' => ['Layout' => '75% (82 keys)', 'Mount' => 'Gasket, FR4 plate', 'Switches' => 'Hot-swap, pre-lubed linear', 'Connectivity' => '2.4GHz / Bluetooth 5.1 / USB-C', 'Battery' => '4000mAh', 'Keycaps' => 'PBT double-shot'],
-     'images' => ['photo-1587829741301-dc798b83add3]', 'photo-1618384887929-16ec33fab9ef', 'photo-1595225476474-87563907a212]],
+     'images' => ['photo-1587829741301-dc798b83add3, 'photo-1618384887929-16ec33fab9ef, 'photo-1595225476474-87563907a212]],
 
     ['slug' => 'glide-pro-mouse', 'name' => 'Glide Pro Mouse', 'brand' => 'MechType', 'category' => 'accessories',
      'price' => 99, 'old_price' => 119, 'rating' => 4.7, 'reviews' => 987, 'stock' => 105, 'badge' => null,
@@ -195,7 +195,7 @@ const SEED_PRODUCTS = [
      'short' => '58g ultralight wireless mouse with 26K optical sensor.',
      'description' => 'At 58 grams with zero honeycomb holes, Glide Pro pairs an esports-grade 26,000 DPI sensor with 90-hour battery life and optical switches rated for 100M clicks.',
      'specs' => ['Weight' => '58 g', 'Sensor' => '26,000 DPI optical', 'Switches' => 'Optical, 100M clicks', 'Polling' => '4000Hz wireless', 'Battery' => '90 hours', 'Connectivity' => '2.4GHz / USB-C wired'],
-     'images' => ['photo-1527864550417-7fd91fc51a46]', 'photo-1587829741301-dc798b83add3', 'photo-1615663245857-ac93bb7c39e7]],
+     'images' => ['photo-1527864550417-7fd91fc51a46, 'photo-1587829741301-dc798b83add3, 'photo-1615663245857-ac93bb7c39e7]],
 
     ['slug' => 'voltcore-140w-charger', 'name' => 'VoltCore 140W GaN Charger', 'brand' => 'VoltCore', 'category' => 'accessories',
      'price' => 69, 'old_price' => 89, 'rating' => 4.6, 'reviews' => 2210, 'stock' => 200, 'badge' => 'Deal',
@@ -203,7 +203,7 @@ const SEED_PRODUCTS = [
      'short' => 'Three ports, 140W total, smaller than your laptop brick.',
      'description' => 'VoltCore 140W uses third-gen GaN to charge a 16" laptop at full speed while topping up a phone and earbuds — all from a charger that fits in your palm.',
      'specs' => ['Output' => '140W total (PD 3.1)', 'Ports' => '2× USB-C + 1× USB-A', 'Single port max' => '140W USB-C 1', 'Size' => '68 × 68 × 32 mm', 'Extras' => 'Foldable plug, travel ready', 'Weight' => '215 g'],
-     'images' => ['photo-1609091839311-d5365f9ff1c5]', 'photo-1583863788434-e58a36330cf0', 'photo-1609091839311-d5365f9ff1c5]],
+     'images' => ['photo-1609091839311-d5365f9ff1c5, 'photo-1583863788434-e58a36330cf0, 'photo-1609091839311-d5365f9ff1c5]],
 
     ['slug' => 'vision-xr-headset', 'name' => 'Vision XR Headset', 'brand' => 'Zenith', 'category' => 'accessories',
      'price' => 499, 'old_price' => 549, 'rating' => 4.4, 'reviews' => 388, 'stock' => 14, 'badge' => 'New',
@@ -211,7 +211,7 @@ const SEED_PRODUCTS = [
      'short' => 'Standalone mixed-reality headset with 4K per eye.',
      'description' => 'Vision XR blends digital content into your room with 4K micro-OLED displays, full-color passthrough and hand tracking. No PC, no base stations — just put it on.',
      'specs' => ['Displays' => '2× 4K micro-OLED, 90Hz', 'Tracking' => 'Inside-out, hand + controller', 'Passthrough' => 'Full-color, low latency', 'Storage' => '256GB', 'Battery' => '2.5h (external pack)', 'Weight' => '515 g'],
-     'images' => ['photo-1622979135225-d2ba269cf1ac]', 'photo-1617802690992-15d93263d3a9', 'photo-1622979135225-d2ba269cf1ac]],
+     'images' => ['photo-1622979135225-d2ba269cf1ac, 'photo-1617802690992-15d93263d3a9, 'photo-1622979135225-d2ba269cf1ac]],
 ];
 
 /** Resolve image IDs to full URLs after definition. */
