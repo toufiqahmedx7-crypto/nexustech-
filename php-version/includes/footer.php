@@ -84,6 +84,7 @@
         <a href="trust.php">Privacy</a>
         <a href="trust.php">Terms</a>
         <a href="trust.php">Cookies</a>
+        <a href="admin/login.php">Admin</a>
       </div>
     </div>
   </div>
@@ -104,7 +105,7 @@
       <span id="cart-total">$0</span>
     </div>
     <p class="cart-note">Free express shipping on orders over $50.</p>
-    <button class="btn btn-primary btn-block">Checkout securely</button>
+    <a href="checkout.php" class="btn btn-primary btn-block">Checkout securely</a>
   </div>
 </aside>
 

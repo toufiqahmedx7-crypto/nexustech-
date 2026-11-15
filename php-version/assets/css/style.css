@@ -2001,3 +2001,152 @@ body {
 .add-to-cart.flash {
   box-shadow: 0 0 0 4px rgba(48, 209, 88, 0.35), 0 0 28px rgba(48, 209, 88, 0.5);
 }
+
+/* ---------- Checkout ---------- */
+
+.checkout-wrap { padding: 3.5rem 0 5rem; }
+
+.checkout-head h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin: 0 0 0.4rem;
+}
+.checkout-head p { margin: 0 0 1.8rem; }
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.6rem;
+  align-items: start;
+}
+
+.checkout-form, .checkout-summary { padding: 1.8rem; }
+.checkout-form h2, .checkout-summary h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  margin: 0 0 1.2rem;
+}
+
+.field { display: block; margin-bottom: 1rem; }
+.field > span {
+  display: block;
+  color: var(--muted, #9aa4b5);
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+.field input, .field textarea, .field select {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 11px;
+  color: #f5f7fa;
+  font: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+.field textarea { resize: vertical; }
+.field select option { background: #0d0f16; }
+.field-hint { color: #9aa4b5; font-size: 0.78rem; margin-top: 0.6rem; }
+
+.flash {
+  max-width: 720px;
+  margin: 0 auto 1.4rem;
+  padding: 0.8rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid;
+  animation: flashIn 0.35s ease both;
+}
+@keyframes flashIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.flash-error {
+  color: #ff8a80;
+  background: rgba(255, 138, 128, 0.08);
+  border-color: rgba(255, 138, 128, 0.3);
+}
+.flash-success {
+  color: #6ee7a0;
+  background: rgba(110, 231, 160, 0.08);
+  border-color: rgba(110, 231, 160, 0.3);
+}
+
+.summary-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.summary-row img {
+  width: 52px; height: 52px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.summary-info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.summary-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.45rem 0;
+  color: #9aa4b5;
+  font-size: 0.92rem;
+}
+.summary-total.grand {
+  margin-top: 0.5rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f5f7fa;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.summary-total.grand .num { color: #38bdf8; }
+
+.checkout-success {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 3rem 2.4rem;
+  text-align: center;
+}
+.success-icon {
+  width: 72px; height: 72px;
+  margin: 0 auto 1.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #6ee7a0;
+  background: rgba(110, 231, 160, 0.1);
+  border: 1px solid rgba(110, 231, 160, 0.35);
+  font-size: 1.8rem;
+  animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@keyframes popIn { from { transform: scale(0.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.checkout-success h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0 0 0.5rem;
+}
+.checkout-sub { color: #9aa4b5; margin: 0 0 1.4rem; }
+.order-no {
+  display: inline-block;
+  padding: 0.7rem 1.3rem;
+  border-radius: 12px;
+  background: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  margin-bottom: 1.6rem;
+}
+.order-no strong { color: #38bdf8; letter-spacing: 0.03em; }
+.checkout-actions { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .checkout-grid { grid-template-columns: 1fr; }
+  .checkout-wrap { padding-top: 2.2rem; }
+}

@@ -35,8 +35,35 @@ If you prefer importing by hand, open phpMyAdmin (`http://localhost/phpmyadmin`)
 | Products | `products.php` | Full catalog grouped by category, working filters + live search |
 | Product Detail | `product.php?slug=...` | Image gallery with thumbnails, specs, stock status, color swatches, quantity selector, Add to Cart, 4 recommendations |
 | Trust | `trust.php` | Slogans, service promises with icons, tags |
+| Checkout | `checkout.php` | Delivery form + order summary, turns the cart into a real order |
 
 The shopping cart lives in the PHP session. Add/update/remove through the slide-out mini-cart, which talks to `cart-api.php` (JSON endpoints) with `fetch` — no page reloads.
+
+## Admin Panel
+
+Open:
+
+```
+http://localhost/nexustech/admin/login.php
+```
+
+Default credentials (change them at the top of the **Admin auth** section in `config.php`):
+
+- Username: `admin`
+- Password: `admin123`
+
+What you can do:
+
+| Section | What it does |
+|---|---|
+| Dashboard | Product / category / order counts, revenue, recent orders, low-stock alerts |
+| Products | Full list with search-free table, add / edit / delete (images, specs, colors, stock, badge, price) |
+| Categories | Add / delete categories (delete is blocked while products use them) |
+| Orders | Every checkout order with customer info, items and a status pipeline: pending → paid → shipped → delivered / cancelled |
+
+Orders placed from the store's checkout page appear here instantly, and product stock is reduced automatically.
+
+> If you already ran `setup.php` before the admin panel existed, just open `setup.php` again — it will create the two new order tables without touching your data.
 
 ## Structure
 
@@ -52,6 +79,19 @@ php-version/
 ├── product.php         Product detail
 ├── trust.php           Trust / promises page
 ├── cart-api.php        JSON cart API (add/update/remove/clear/list)
+├── checkout.php        Delivery form, creates the order + reduces stock
+├── admin/
+│   ├── login.php       Admin login (default admin / admin123)
+│   ├── logout.php
+│   ├── auth.php        Session gate for every admin page
+│   ├── index.php       Dashboard: stats, recent orders, low stock
+│   ├── products.php    Product table + delete
+│   ├── product-form.php Add / edit product (all fields incl. specs & images)
+│   ├── categories.php  Category list + add / delete
+│   ├── orders.php      Order list + status pipeline
+│   ├── order-view.php  Single order detail + status update
+│   ├── includes/       Admin layout (sidebar, topbar)
+│   └── assets/admin.css Admin design system
 ├── includes/
 │   ├── header.php      <head>, glow frame, navbar, hamburger menu
 │   └── footer.php      Footer, newsletter, cart drawer markup

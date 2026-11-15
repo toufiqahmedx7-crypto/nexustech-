@@ -53,7 +53,29 @@ try {
         images JSON NULL,
         FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4');
-    $messages[] = 'Tables created.';
+    $server->exec('CREATE TABLE IF NOT EXISTS orders (
+        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        order_no VARCHAR(20) NOT NULL UNIQUE,
+        customer_name VARCHAR(120) NOT NULL,
+        phone VARCHAR(40) NOT NULL,
+        address VARCHAR(255) NOT NULL,
+        payment VARCHAR(30) NOT NULL DEFAULT "cod",
+        items_count INT UNSIGNED NOT NULL DEFAULT 0,
+        total DECIMAL(10,2) NOT NULL,
+        status VARCHAR(20) NOT NULL DEFAULT "pending",
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4');
+
+    $server->exec('CREATE TABLE IF NOT EXISTS order_items (
+        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        order_id INT UNSIGNED NOT NULL,
+        product_id INT UNSIGNED NULL,
+        name VARCHAR(160) NOT NULL,
+        price DECIMAL(10,2) NOT NULL,
+        qty INT UNSIGNED NOT NULL,
+        FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4');
+    $messages[] = 'Tables created (products, categories, orders).';
 
     $count = (int)$server->query('SELECT COUNT(*) AS c FROM categories')->fetch()['c'];
     if ($count === 0) {

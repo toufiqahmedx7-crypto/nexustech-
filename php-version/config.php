@@ -264,3 +264,140 @@ function product_card_html(array $p, int $index = 0): string
     <?php
     return (string)ob_get_clean();
 }
+
+/* ---------- Admin auth ---------- */
+
+/* Change these two lines before putting the site online. */
+define('ADMIN_USER', 'admin');
+define('ADMIN_PASS', 'admin123');
+
+function admin_is_logged_in(): bool
+{
+    return !empty($_SESSION['admin']);
+}
+
+function admin_login(string $user, string $pass): bool
+{
+    if (hash_equals(ADMIN_USER, $user) && hash_equals(ADMIN_PASS, $pass)) {
+        $_SESSION['admin'] = $user;
+        return true;
+    }
+    return false;
+}
+
+function admin_logout(): void
+{
+    unset($_SESSION['admin']);
+}
+
+/* ---------- CSRF protection ---------- */
+
+function csrf_token(): string
+{
+    if (empty($_SESSION['csrf'])) {
+        $_SESSION['csrf'] = bin2hex(random_bytes(16));
+    }
+    return $_SESSION['csrf'];
+}
+
+function csrf_field(): string
+{
+    return '<input type="hidden" name="csrf" value="' . e(csrf_token()) . '">';
+}
+
+function csrf_ok(): bool
+{
+    return isset($_POST['csrf'], $_SESSION['csrf'])
+        && hash_equals($_SESSION['csrf'], (string)$_POST['csrf']);
+}
+
+/* ---------- Orders ---------- */
+
+const ORDER_STATUSES = ['pending', 'paid', 'shipped', 'delivered', 'cancelled'];
+
+function slugify(string $s): string
+{
+    $s = strtolower(trim($s));
+    $s = preg_replace('/[^a-z0-9]+/', '-', $s);
+    return trim($s, '-') ?: 'item';
+}
+
+function unique_slug(string $slug, string $table, int $ignoreId = 0): string
+{
+    $base   = $slug;
+    $suffix = 2;
+    while (true) {
+        $stmt = db()->prepare("SELECT id FROM `$table` WHERE slug = ? AND id <> ? LIMIT 1");
+        $stmt->execute([$slug, $ignoreId]);
+        if (!$stmt->fetch()) return $slug;
+        $slug = $base . '-' . $suffix++;
+    }
+}
+
+function orders_create(string $name, string $phone, string $address, string $payment): array
+{
+    $pdo     = db();
+    $orderNo = 'NX-' . date('ymd') . '-' . strtoupper(bin2hex(random_bytes(3)));
+    $pdo->beginTransaction();
+    try {
+        $stmt = $pdo->prepare(
+            'INSERT INTO orders (order_no, customer_name, phone, address, payment, items_count, total, status)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
+        );
+        $stmt->execute([$orderNo, $name, $phone, $address, $payment, cart_count(), cart_total(), 'pending']);
+        $orderId = (int)$pdo->lastInsertId();
+
+        $itemStmt  = $pdo->prepare('INSERT INTO order_items (order_id, product_id, name, price, qty) VALUES (?, ?, ?, ?, ?)');
+        $stockStmt = $pdo->prepare('UPDATE products SET stock = GREATEST(stock - ?, 0) WHERE id = ?');
+        foreach (cart_items() as $i) {
+            $itemStmt->execute([$orderId, $i['id'], $i['name'], $i['price'], $i['qty']]);
+            $stockStmt->execute([$i['qty'], $i['id']]);
+        }
+        $pdo->commit();
+    } catch (Throwable $ex) {
+        $pdo->rollBack();
+        throw $ex;
+    }
+    $_SESSION['cart'] = [];
+    return ['id' => $orderId, 'order_no' => $orderNo];
+}
+
+function orders_all(): array
+{
+    return db()->query('SELECT * FROM orders ORDER BY id DESC')->fetchAll();
+}
+
+function order_by_id(int $id): ?array
+{
+    $stmt = db()->prepare('SELECT * FROM orders WHERE id = ? LIMIT 1');
+    $stmt->execute([$id]);
+    $row = $stmt->fetch();
+    return $row ?: null;
+}
+
+function order_items_for(int $orderId): array
+{
+    $stmt = db()->prepare('SELECT * FROM order_items WHERE order_id = ? ORDER BY id');
+    $stmt->execute([$orderId]);
+    return $stmt->fetchAll();
+}
+
+function order_set_status(int $id, string $status): void
+{
+    if (!in_array($status, ORDER_STATUSES, true)) return;
+    $stmt = db()->prepare('UPDATE orders SET status = ? WHERE id = ?');
+    $stmt->execute([$status, $id]);
+}
+
+function admin_stats(): array
+{
+    $pdo = db();
+    return [
+        'products'    => (int)$pdo->query('SELECT COUNT(*) AS c FROM products')->fetch()['c'],
+        'categories'  => (int)$pdo->query('SELECT COUNT(*) AS c FROM categories')->fetch()['c'],
+        'orders'      => (int)$pdo->query('SELECT COUNT(*) AS c FROM orders')->fetch()['c'],
+        'revenue'     => (float)$pdo->query("SELECT COALESCE(SUM(total),0) AS s FROM orders WHERE status <> 'cancelled'")->fetch()['s'],
+        'low_stock'   => $pdo->query('SELECT * FROM products WHERE stock <= 5 ORDER BY stock, name')->fetchAll(),
+        'recent'      => $pdo->query('SELECT * FROM orders ORDER BY id DESC LIMIT 5')->fetchAll(),
+    ];
+}
