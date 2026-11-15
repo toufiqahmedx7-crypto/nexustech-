@@ -2,10 +2,10 @@
 require_once __DIR__ . '/config.php';
 
 $slides = [
-    ['eyebrow' => 'New flagship',      'title' => 'Nova X9 Pro',         'subtitle' => 'Titanium. 200MP AI camera. The brightest display we have ever made.', 'slug' => 'nova-x9-pro',        'image' => seed_img('photo-1592750475338-74b7b21085ab', 1400), 'price' => 'From $1,099'],
-    ['eyebrow' => 'Workstation class', 'title' => 'AeroBook Pro 16',     'subtitle' => 'Mini-LED brilliance and 22 hours of battery in 2.1 kg.',              'slug' => 'aerobook-pro-16',    'image' => seed_img('photo-1517336714731-489689fd1ca8', 1400), 'price' => 'From $2,399'],
-    ['eyebrow' => 'Silence the noise', 'title' => 'Sonic Max ANC',       'subtitle' => 'Reference-grade sound. Adaptive noise cancellation. 40h battery.',    'slug' => 'sonic-max-anc',      'image' => seed_img('photo-1505740420928-5e560c06d30e', 1400), 'price' => 'From $399'],
-    ['eyebrow' => 'Built for extremes','title' => 'Chrono Watch Ultra',  'subtitle' => 'Titanium adventure watch with dual-band GPS and 3000-nit display.',   'slug' => 'chrono-watch-ultra', 'image' => seed_img('photo-1523275335684-37898b6baf30', 1400), 'price' => 'From $799'],
+    ['eyebrow' => 'New flagship',     'title' => 'Nova X9 Pro',        'subtitle' => 'Titanium. 200MP AI camera. The brightest display we have ever made.', 'slug' => 'nova-x9-pro',        'image' => seed_img('photo-1592750475338-74b7b21085ab', 1400), 'price' => 'From $1,099'],
+    ['eyebrow' => 'Workstation class','title' => 'AeroBook Pro 16',    'subtitle' => 'Mini-LED brilliance and 22 hours of battery in 2.1 kg.',              'slug' => 'aerobook-pro-16',    'image' => seed_img('photo-1517336714731-489689fd1ca8', 1400), 'price' => 'From $2,399'],
+    ['eyebrow' => 'Silence the noise','title' => 'Sonic Max ANC',      'subtitle' => 'Reference-grade sound. Adaptive noise cancellation. 40h battery.',    'slug' => 'sonic-max-anc',      'image' => seed_img('photo-1505740420928-5e560c06d30e', 1400), 'price' => 'From $399'],
+    ['eyebrow' => 'Built for extremes','title' => 'Chrono Watch Ultra','subtitle' => 'Titanium adventure watch with dual-band GPS and 3000-nit display.',   'slug' => 'chrono-watch-ultra', 'image' => seed_img('photo-1523275335684-37898b6baf30', 1400), 'price' => 'From $799'],
 ];
 
 $categories = categories_all();
