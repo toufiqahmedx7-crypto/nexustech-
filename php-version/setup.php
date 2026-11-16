@@ -1,16 +1,16 @@
 <?php
 /**
  * NexusTech — one-click installer.
- * Open http://localhost/nexustech/php-version/setup.php once.
- * Creates the database, tables and seeds 24 products + 6 categories.
+ * Works on XAMPP (defaults) and on shared hosting — just edit the DB_*
+ * constants at the top of config.php to match your host's database first.
  */
-require __DIR__ . '/seed-data.php';
+require_once __DIR__ . '/config.php';
 
-$host = '127.0.0.1';
-$port = '3306';
-$name = 'nexustech';
-$user = 'root';
-$pass = '';
+$host = DB_HOST;
+$port = DB_PORT;
+$name = DB_NAME;
+$user = DB_USER;
+$pass = DB_PASS;
 
 $messages = [];
 $error    = null;
@@ -21,8 +21,12 @@ try {
     ]);
     $messages[] = 'Connected to MySQL server.';
 
-    $server->exec("CREATE DATABASE IF NOT EXISTS `$name` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
-    $messages[] = "Database `$name` ready.";
+    try {
+        $server->exec("CREATE DATABASE IF NOT EXISTS `$name` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+        $messages[] = "Database `$name` ready.";
+    } catch (PDOException $e) {
+        $messages[] = "Using existing database `$name` (created from the hosting panel).";
+    }
 
     $server->exec("USE `$name`");
 
@@ -143,6 +147,8 @@ try {
         <?php foreach ($messages as $m): ?><li class="ok">✓ <?= htmlspecialchars($m) ?></li><?php endforeach; ?>
       </ul>
       <a class="btn" href="index.php">Open the store →</a>
+      <a class="btn" href="admin/login.php">Admin panel →</a>
+      <p style="color:#9aa4b5;margin-top:1rem">Admin login: <code>admin</code> / <code>admin123</code> — change it in <code>config.php</code>. Delete <code>setup.php</code> after setup.</p>
     <?php endif; ?>
   </div>
 </body>

@@ -1,0 +1,89 @@
+==========================================
+ NexusTech — Hosting Upload Guide (Bangla)
+==========================================
+
+Ei ZIP-er VITOREI puro site ache:
+ - Frontend store (home, featured, products, detail, trust, cart)
+ - Backend (MySQL database + checkout + order system)
+ - Admin panel (admin/login.php)
+
+Mane: front + back ekshathe — ekta hosting-ei upload korlei hobe.
+
+------------------------------------------
+STEP 1: Hosting account + database banan
+------------------------------------------
+Jekono PHP hosting e kaj korbe (free: InfinityFree, 000webhost / paid: Namecheap, Hostinger).
+
+1. Hosting control panel e login korun
+2. "MySQL Databases" menu khujun
+3. Ekta database banan, jemon:  nexustech
+4. Ekta database user banan + password din
+5. User ke database-e "All Privileges" diye attach korun
+6. 3 ta jinish note korun (porer step e lagbe):
+      DB host     (sadharonto: sqlXXX.infinityfree.com ba localhost)
+      DB name     (jemon: epz_12345_nexustech)
+      DB user/pass (jemon: epz_12345 / apnar password)
+
+------------------------------------------
+STEP 2: config.php edit korun
+------------------------------------------
+1. config.php file ta Notepad ba kono text editor e khulun
+2. Upore ei 4 line khuje badan:
+
+   define('DB_HOST', '127.0.0.1');
+   define('DB_NAME', 'nexustech');
+   define('DB_USER', 'root');
+   define('DB_PASS', '');
+
+3. Apnar hosting-er value boshiye din, jemon:
+
+   define('DB_HOST', 'sqlXXX.infinityfree.com');
+   define('DB_NAME', 'epz_12345_nexustech');
+   define('DB_USER', 'epz_12345');
+   define('DB_PASS', 'apnarDBpassword');
+
+4. Ekei sathe admin password o badlate paren:
+   define('ADMIN_USER', 'admin');
+   define('ADMIN_PASS', 'admin123');   <-- notun kichu din!
+
+5. Save korun.
+
+------------------------------------------
+STEP 3: File upload korun
+------------------------------------------
+1. Hosting control panel e "File Manager" khulun
+2. "htdocs" (InfinityFree) ba "public_html" (onno host) folder e jan
+3. Ei zip file ta upload korun (jodi zip upload na dey, tahole
+   zip er BHIITORER file gulo select kore upload korun)
+4. Zip ta upload hole right-click → Extract → ekhanei extract korun
+5. Extract sesh e zip file ta delete diye din
+
+IMPORTANT: index.php, config.php — ei file gulo jeno htdocs/public_html er
+SORASHORI bhitor e thake, kono subfolder er bhitore na.
+
+------------------------------------------
+STEP 4: Database setup (ekbar)
+------------------------------------------
+1. Browser e khulun:   https://apnar-domain.com/setup.php
+2. Sob ✓ ✓ ✓ dekhle bujhben database + 24 product ready
+3. SECURITY: ekhon setup.php file ta hosting theke DELETE korun
+
+------------------------------------------
+STEP 5: Live!
+------------------------------------------
+- Store:        https://apnar-domain.com/
+- Admin panel:  https://apnar-domain.com/admin/login.php
+                (admin / apnar notun password)
+
+Test korun:
+1. Store e giye 2-1 ta product cart e din
+2. "Checkout securely" → name/phone/address diye order place korun
+3. Admin panel → Orders — apnar order dekhben, stock o kome geche!
+
+------------------------------------------
+Common problems
+------------------------------------------
+- "Access denied for user"  → config.php er DB_USER/DB_PASS bhul
+- "Unknown database"        → DB_NAME spelling bhul (hosting prefix soho)
+- Page blank / 500 error    → hosting e PHP version 8+ ache kina dekhun
+- Image na dekhacche        → Unsplash theke load hoy, internet lagbe
